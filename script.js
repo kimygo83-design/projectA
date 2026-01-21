@@ -1,5 +1,5 @@
 // 스크롤 이벤트 처리
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const header = document.querySelector('.Background-Border');
     if (window.scrollY > 50) {
         header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
@@ -11,7 +11,7 @@ window.addEventListener('scroll', function() {
 // 프로모션 토글 버튼
 const toggleButton = document.querySelector('.toggle-button');
 if (toggleButton) {
-    toggleButton.addEventListener('click', function() {
+    toggleButton.addEventListener('click', function () {
         const promotionContent = document.querySelector('.promotion-content');
         promotionContent.classList.toggle('expanded');
     });
@@ -19,7 +19,7 @@ if (toggleButton) {
 
 // 부드러운 스크롤
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -32,7 +32,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // 이미지 지연 로딩
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const images = document.querySelectorAll('img');
 
     const imageObserver = new IntersectionObserver((entries, observer) => {
@@ -64,7 +64,7 @@ function createMobileMenu() {
         menuBtn.innerHTML = '☰';
         menuBtn.style.display = 'none';
 
-        menuBtn.addEventListener('click', function() {
+        menuBtn.addEventListener('click', function () {
             const navList = document.querySelector('.Nav-List');
             navList.classList.toggle('mobile-open');
         });
@@ -93,7 +93,7 @@ function handleResize() {
 }
 
 window.addEventListener('resize', handleResize);
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     createMobileMenu();
     handleResize();
 });
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', animateOnScroll);
 // 검색 기능
 const searchIcon = document.querySelector('.search-icon');
 if (searchIcon) {
-    searchIcon.addEventListener('click', function() {
+    searchIcon.addEventListener('click', function () {
         // 검색 창 열기/닫기 기능 추가 가능
         console.log('검색 기능');
     });
@@ -133,14 +133,14 @@ const signupBtn = document.querySelector('.Link-signup');
 const signinBtn = document.querySelector('.Link-signin');
 
 if (signupBtn) {
-    signupBtn.addEventListener('click', function(e) {
+    signupBtn.addEventListener('click', function (e) {
         e.preventDefault();
         console.log('회원가입');
     });
 }
 
 if (signinBtn) {
-    signinBtn.addEventListener('click', function(e) {
+    signinBtn.addEventListener('click', function (e) {
         e.preventDefault();
         console.log('로그인');
     });
@@ -148,12 +148,18 @@ if (signinBtn) {
 
 // 버튼 호버 효과
 document.querySelectorAll('.Link-button, .Link-footer-button, .Border-button').forEach(button => {
-    button.addEventListener('mouseenter', function() {
+    button.addEventListener('mouseenter', function () {
         this.style.transform = 'scale(1.05)';
         this.style.transition = 'transform 0.3s ease';
     });
 
-    button.addEventListener('mouseleave', function() {
+    button.addEventListener('mouseleave', function () {
         this.style.transform = 'scale(1)';
     });
 });
+
+// ===============팝업=================
+const btn = document.querySelector('.popup button');
+btn.onclick = () => {
+    document.querySelector('.popup').style.display = "none";
+}
